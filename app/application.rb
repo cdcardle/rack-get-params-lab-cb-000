@@ -24,7 +24,7 @@ class Application
       end
     elsif req.path.match(/add/)
       item_to_add = req.params["item"]
-      resp
+      resp.write handle_add(item_to_add)
     else
       resp.write "Path Not Found"
     end
@@ -46,5 +46,6 @@ class Application
       return "Added #{item_to_add} to your cart"
     else
       return "Error!/nWe don't have that item"
+    end
   end
 end
